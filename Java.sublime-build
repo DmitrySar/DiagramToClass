@@ -1,0 +1,7 @@
+{
+	"file_regex": "(.+):(\\d+): error: ",
+	"path": "..\\..\\..\\jdk\\bin",
+	"shell_cmd": "javac -cp $file_path $file -d $file_path\\..\\build && start cmd /k java -cp $file_path\\..\\build $file_base_name",
+	"selector": "source.java",
+	"file_patterns": ["*.java"]
+}

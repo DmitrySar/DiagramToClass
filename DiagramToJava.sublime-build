@@ -1,0 +1,5 @@
+{
+	"path": "..\\..\\jdk\\bin",
+    "shell_cmd": "md $file_path\\src && md $file_path\\build && md $file_path\\out && java -jar $file_path\\..\\..\\lib\\diagramToJava.jar $file $file_path\\src",
+    "shell": true
+}

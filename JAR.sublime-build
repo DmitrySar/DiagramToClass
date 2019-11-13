@@ -1,0 +1,5 @@
+{
+	"path": "..\\..\\..\\jdk\\bin",
+	"shell_cmd": "cd $file_path\\..\\build && jar -c -v --file=out.jar --main-class=$file_base_name *.class && move out.jar ..\\out",
+	"shell": true
+}
