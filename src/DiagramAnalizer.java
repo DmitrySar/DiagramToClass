@@ -36,16 +36,18 @@ class DiagramAnalizer {
         for (int i = 0; i < lines.length; i++) {
              String s = lines[i];
              if (s.contains(":")) {
-                 String[] ss = s.split(":");
-                 type = ss[ss.length - 1];
-                 s = s.replaceAll("private ", "private" + type + " ");
-                 s = s.replaceAll("public ", "public" + type + " ");
-                 s = s.replaceAll(":.*", ";\n");
-                 s = s.replaceAll("\\).*", ") {\n        //TODO:\n    }\n");
+                String[] ss = s.split(":");
+                type = ss[ss.length - 1];
+                s = s.replaceAll("private ", "private" + type + " ");
+                s = s.replaceAll("public ", "public" + type + " ");
+                s = s.replaceAll(":.*", ";\n");
+                if (!classText.contains("interface ")) {
+                    s = s.replaceAll("\\).*", ") {\n        //TODO:\n    }\n");
+                } 
              } else if (s.contains(")")) {
                 s = s.replaceAll("\\)", ") {\n        //TODO:\n    }\n");
              } else if (!s.contains("{") && !s.contains("}")) {
-                 s = s + ";";
+                s = s + ";";
              }
              result += s + "\n";
         } 
